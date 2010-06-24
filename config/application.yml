@@ -1,0 +1,11 @@
+development: &defaults
+  app_name: Mat Holroyd
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+staging:
+  <<: *defaults
