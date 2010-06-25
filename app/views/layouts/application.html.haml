@@ -8,15 +8,16 @@
     = yield(:head)
     = stylesheet_link_tag 'formtastic', 'jquery-ui-1.7.3.custom', 'main'
   %body{:class => "#{params[:controller]}_#{params[:action]}"}
-    #header
-      #title= yield(:title) || App[:app_name]
-      #user_bar= render(:partial => 'shared/user_bar')
-    #page_heading
-      %h1= yield(:heading) 
-    #flash
-      #notice= flash[:notice] unless flash[:notice].blank?
-      #error= flash[:error] unless flash[:error].blank?
-    #content= yield
-    #footer
-      .copyright Copyright &copy; #{App[:app_name]} #{Time.now.year}
+    #container
+      #header
+        #page_title= yield(:title) || App[:app_name]
+        .user_bar= render(:partial => 'shared/user_bar')
+      #page_heading
+        %h1= yield(:heading) 
+      #flash
+        .notice= flash[:notice] unless flash[:notice].blank?
+        .error= flash[:error] unless flash[:error].blank?
+      #content= yield
+      #footer
+        .copyright &copy; #{App[:app_name]} 2001-#{Time.now.year}
     

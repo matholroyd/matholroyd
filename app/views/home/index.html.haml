@@ -1,0 +1,87 @@
+- content_for :heading, 'Victorian IT services'
+
+.info#about
+  %h1 About
+  %p Mat Holroyd Consultancy has been providing small business IT services to Victoria since 2001. The consultancy is based in Melbourne, and has recently started operations in Shepparton.
+
+.info#services
+  %h1 Services
+  %p We offer a wide range of IT services for small business clients. These services include:
+  %ul
+    %li Evaluation of IT infrastructure (backups, networking, file management)
+    %li Website development (for both internal and external use)
+    %li Adding multi-language support to existing websites/applications
+  %p And we now support several new services
+  %ul
+    %li iPhone & iPad application development
+    %li iPhone & iPad website optimisation
+
+.info#pricing
+  %h1 Pricing
+  %table
+    %thead
+      %tr
+        %td.center Service
+        %td.center{:colspan => 2} Price
+    %tbody
+      %tr.line_top
+        %th Project quote (estimate)
+        %td.center.notes{:colspan => 2} free
+        %td.notes= link_to 'Contact us', '#contact'
+      %tr.space_top
+        %th Evaluation of IT infrastructure
+        %td $120/hour
+        %td $900/full-day
+        %td.notes Typically takes 4~8 hours to evaluate an organisation
+      %tr 
+        %th Website development
+        %td $600/half-day
+        %td $1000/full-day
+        %td.notes Project dependant, usually takes 2~60 days
+      %tr
+        %th iPhone/iPad development 
+        %td $600/half-day
+        %td $1000/full-day
+        %td.notes Project dependant, usually takes 5~20 days
+      %tr.space_top
+        %th Adding multi-language support 
+        %td $1100/half-day
+        %td $2000/full-day
+        %td.notes Typically takes 2~5 days
+      %tr
+        %th German/French/Russian translations
+        %td $40/100 words
+        %td
+        %td
+      %tr
+        %th Chinese translations
+        %td $7/100 characters
+        %td
+        %td
+      %tr.line_bottom
+        %th Other translations
+        %td.notes project dependant
+        %td
+        %td
+
+
+
+
+.info#projects
+  %h1 Clients
+  %p We have helped a range of organisations manage, protect and translate their data.  Organisations range from professional manufactures and law firms, to not-for-profit associations such as sports clubs and refugee networks.
+  
+.info#contact
+  %h1 Contact
+  .left
+    %p 
+      %strong Email
+      %a{:href => 'mailto:contact@matholroyd.com'} contact@matholroyd.com
+    %p
+      %strong Phone
+      +61 433 171 303
+    %p
+      %strong Mail
+      %a{:href => 'http://maps.google.com.au/maps?f=q&source=s_q&hl=en&geocode=&q=669+Rathdowne+St,+carlton+north&sll=-25.335448,135.745076&sspn=50.303435,62.314453&ie=UTF8&hq=&hnear=669+Rathdowne+St,+Carlton+North+Victoria+3054&z=16', :target => '_blank'} 669 Rathdowne St, Carlton North, VIC, 3054
+  .right
+

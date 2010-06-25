@@ -1,0 +1,3 @@
+public/stylesheets/*.css
+!public/stylesheets/jquery-ui-*.css
+!public/stylesheets/formtastic.css

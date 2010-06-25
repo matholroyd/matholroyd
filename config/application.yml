@@ -1,5 +1,5 @@
 development: &defaults
-  app_name: Mat Holroyd
+  app_name: Mat Holroyd Consultancy
 
 test:
   <<: *defaults
