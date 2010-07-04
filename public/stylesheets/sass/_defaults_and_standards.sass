@@ -1,14 +1,80 @@
-body, p, div, table, tr, th, td, thead, tbody, tfoot, span, a, form, ul, ol, li, hr
-  :padding 0px
-  :margin 0px
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video
+  :margin 0
+  :padding 0
+  :border 0
+  :outline 0
+  :vertical-align baseline
+  :background transparent
   :background #FFF
   :color #333
   :font
     :family serif
     :size 11pt 
+
+body
+  :line-height 1
+
+article,aside,canvas,details,figcaption,figure, footer,header,hgroup,menu,nav,section,summary
+  :display block
+
+nav ul 
+  :list-style none
+
+blockquote, q 
+  :quotes none
+
+blockquote:before, blockquote:after, q:before, q:after 
+  :content ''
+  :content none
+
+a 
+  :vertical-align baseline
+  :background transparent
+  :color #0481B5
+  :padding 2px 3px
+  :text-decoration none
+  &:hover
+    :color white
+    :text-shadow black 1px 1px 1px
+    :background  #0481B5
+
+ins 
+  :background-color #ff9
+  :color #000
+  :text-decoration none
+
+mark 
+  :background-color #ff9
+  :color #000
+  :font-style italic
+  :font-weight bold
+
+del 
+  :text-decoration line-through
+
+abbr[title], dfn[title] 
+  :border-bottom 1px dotted #000
+  :cursor help
+
+table 
+  :border-collapse collapse
+  :border-spacing 0
+
+hr 
+  :display block
+  :height 1px
+  :border 0
+  :border-top 1px solid #ccc
+  :margin 1em 0
+  :padding 0
+
+input, select 
+  :vertical-align middle
     
     
 h1, h2, h3, h4, h5, h6
+  :margin-top 0.8em
+  :margin-bottom 0.5em
   :font
     :family arial, sans-serif
 
@@ -16,13 +82,11 @@ h1
   :font-size 200%
   
 h2
-  :font-size 150%
+  :text-shadow #ccc 0px 5px 3px
+  :font-size 180%
 
 h3
   :font-size 130%
-
-a
-  :color blue
 
 ul, ol
   :margin-bottom 1em

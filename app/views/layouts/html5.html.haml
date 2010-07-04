@@ -1,15 +1,19 @@
-!!!
+= "<!DOCTYPE html>"
 %html
   %head
-    %meta{'http-equiv' => "Content-Type", :content => "text/css; charset=utf-8"}
+    %meta{ :charset => "utf-8"}
     %title= yield(:title) || App[:app_name]
     = javascript_include_tag 'jquery-1.3.2.min', 'jquery.flash', 'jquery.json-1.3.min', 'jquery-ui-1.7.3.min', 'jquery-livequery-1.0.3', 'jquery.cookie', 'Jaml-all', 'dbc'
     = javascript_include_tag 'application'
     = yield(:head)
     = stylesheet_link_tag 'formtastic', 'jquery-ui-1.7.3.custom', 'main'
+    :erb
+      <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <! [endif]-->
   %body{:class => "#{params[:controller]}_#{params[:action]}"}
     #container
-      .header
+      %header
         #page_title= yield(:title) || App[:app_name]
         .user_bar= render(:partial => 'shared/user_bar')
       #page_heading
@@ -18,6 +22,5 @@
         .notice= flash[:notice] unless flash[:notice].blank?
         .error= flash[:error] unless flash[:error].blank?
       #content= yield
-      #footer
+      %footer
         .copyright &copy; #{App[:app_name]} 2001-#{Time.now.year}
-    

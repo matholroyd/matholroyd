@@ -1,0 +1,123 @@
+- content_for :heading, 'HTML 5 demos'
+
+%canvas#screen{:width => '400', :height => '300'}
+  %p 
+    %strong Alert!
+    You don't have a HTML5 compatible browser! Download and install the one of the following browsers:
+    %ul 
+      %li Firefox
+      %li Google Chrome
+      %li Safari 4
+      %li IE 8
+      
+      
+:javascript
+  var canvas = document.getElementById('screen');
+  if(canvas.getContext !== null) {
+    var ctx = canvas.getContext('2d');
+    ctx.drawPrettyCircles = function() {  
+      ctx.save();  
+      ctx.translate(75,205);  
+      for (var i=1;i<6;i++){ // Loop through rings (from inside to out)  
+        ctx.fillStyle = 'rgb('+(51*i)+','+(255-51*i)+',255)';  
+        for (var j=0;j<i*6;j++){ // draw individual dots  
+          ctx.rotate(Math.PI*2/(i*6));  
+          ctx.beginPath();  
+          ctx.arc(0,i*12.5,5,0,Math.PI*2,true);  
+          ctx.fill();  
+        }  
+      }  
+      ctx.restore();  
+    }
+    ctx.drawPrettyCircles();
+    var sun = new Image();  
+    var moon = new Image();  
+    var earth = new Image();  
+    ctx.init = function(){  
+      sun.src = 'images/sun.png';  
+      moon.src = 'images/moon.png';  
+      earth.src = 'images/earth.png';  
+      setInterval(ctx.drawSolar,100);  
+    }  
+    ctx.drawSolar = function() {  
+      ctx.globalCompositeOperation = 'destination-over';  
+      ctx.clearRect(0,0,300,300); // clear canvas  
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';  
+      ctx.strokeStyle = 'rgba(0,153,255,0.4)';  
+      ctx.save();  
+      ctx.translate(150,150);  
+      // Earth  
+      var time = new Date();  
+      ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );  
+      ctx.translate(105,0);  
+      ctx.fillRect(0,-12,50,24); // Shadow  
+      // ctx.draw(earth,-12,-12);  
+      ctx.beginPath();
+      ctx.moveTo(-12, -12);
+      ctx.arc(0, 0, 12, 0, Math.PI*2, true);
+      ctx.fillStyle = 'rgba(0,0,255,1)';  
+      ctx.fill();
+      // Moon  
+      ctx.save();  
+      ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );  
+      ctx.translate(0,28.5);  
+      // ctx.drawImage(moon,-3.5,-3.5);  
+      ctx.beginPath();
+      ctx.moveTo(-3.5, -3.5);
+      ctx.arc(0, 0, 3.5, 0, Math.PI*2, true);
+      ctx.fillStyle = 'rgba(0,0,0,1)';  
+      ctx.fill();
+      ctx.restore();  
+      ctx.restore();  
+      ctx.beginPath();  
+      ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit  
+      ctx.stroke();  
+      // ctx.drawImage(sun,0,0,300,300);  
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.arc(0, 0, 12, 0, Math.PI*2, true);
+      ctx.fillStyle = 'rgba(0,0,255,1)';  
+      ctx.fill();
+    }
+    var img = new Image();
+    img.src = '/images/rails.png';
+    img.onload = function() {
+      ctx.drawImage(img, 250, 20, 30, 50);
+    };
+    ctx.fillStyle = "rgba(0, 0, 200, 0.5)";  
+    ctx.fillRect (30, 30, 55, 50);
+    ctx.fillStyle = "rgba(200,0,0, 0.5)";  
+    ctx.fillRect(10, 10, 55, 50);  
+    ctx.clearRect(40, 40, 5, 5);  
+    ctx.beginPath();  
+    ctx.moveTo(75,50);  
+    ctx.lineTo(100,75);  
+    ctx.lineTo(100,25);  
+    ctx.fill();
+    ctx.beginPath();  
+    ctx.arc(175,75,50,0,Math.PI*2,true); // Outer circle  
+    ctx.moveTo(210,75);  
+    ctx.arc(175,75,35,0,Math.PI,false);   // Mouth (clockwise)  
+    ctx.moveTo(165,65);  
+    ctx.arc(160,65,5,0,Math.PI*2,true);  // Left eye  
+    ctx.moveTo(195,65);  
+    ctx.arc(190,65,5,0,Math.PI*2,true);  // Right eye  
+    ctx.strokeStyle = "rgba(0,200,0,1)";  
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(300, 50, 50, 0, Math.PI / 5, false);
+    ctx.arc(300, 50, 25, Math.PI / 5, 0, true);
+    ctx.fill();
+    ctx.beginPath();  
+    ctx.moveTo(75,25);  
+    ctx.quadraticCurveTo(25,25,25,62.5);  
+    ctx.quadraticCurveTo(25,100,50,100);  
+    ctx.quadraticCurveTo(50,120,30,125);  
+    ctx.quadraticCurveTo(60,120,65,100);  
+    ctx.quadraticCurveTo(125,100,125,62.5);  
+    ctx.quadraticCurveTo(125,25,75,25);  
+    ctx.stroke();
+    ctx.init();
+  } else {
+  }
+  
